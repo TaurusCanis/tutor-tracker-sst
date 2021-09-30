@@ -3,15 +3,12 @@ import dynamoDb from "../util/dynamodb";
 
 export const main = handler(async (event) => {
   const data = JSON.parse(event.body);
-
-  console.log("DATA: ", data);
-
   const params = {
     TableName: process.env.TABLE_NAME,
     // 'Key' defines the partition key and sort key of the item to be updated
     Key: {
       userId: event.requestContext.authorizer.iam.cognitoIdentity.identityId, // The id of the author
-      studentId: event.pathParameters.id, // The id of the note from the path
+      parentId: event.pathParameters.id, // The id of the note from the path
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression

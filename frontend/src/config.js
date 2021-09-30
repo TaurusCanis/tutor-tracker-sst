@@ -3,6 +3,7 @@ const config = {
     REGION: process.env.REACT_APP_REGION,
     APPOINTMENTS_URL: process.env.REACT_APP_APPOINTMENTS_API_URL,
     STUDENTS_URL: process.env.REACT_APP_STUDENTS_API_URL,
+    PARENTS_URL: process.env.REACT_APP_PARENTS_API_URL,
   },
   cognito: {
     REGION: process.env.REACT_APP_REGION,

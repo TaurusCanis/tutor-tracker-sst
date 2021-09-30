@@ -6,7 +6,7 @@ export default class AuthStack extends sst.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    const { appointmentsApi, studentsApi } = props;
+    const { appointmentsApi, studentsApi, parentsApi } = props;
 
     this.auth = new sst.Auth(this, "Auth", {
       cognito: {
@@ -18,7 +18,8 @@ export default class AuthStack extends sst.Stack {
 
     this.auth.attachPermissionsForAuthUsers([
       appointmentsApi,
-      studentsApi
+      studentsApi,
+      parentsApi
     ]);
 
     this.addOutputs({

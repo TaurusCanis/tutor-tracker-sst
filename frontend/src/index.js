@@ -27,6 +27,11 @@ Amplify.configure({
         endpoint: config.apiGateway.STUDENTS_URL,
         region: config.apiGateway.REGION,
       },
+      {
+        name: "parents",
+        endpoint: config.apiGateway.PARENTS_URL,
+        region: config.apiGateway.REGION,
+      },
     ]
   },
 });

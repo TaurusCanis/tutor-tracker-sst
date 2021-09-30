@@ -4,6 +4,7 @@ export default class StorageStack extends sst.Stack {
 
   appointmentsTable;
   studentsTable;
+  parentsTable;
 
   constructor(scope, id, props) {
     super(scope, id, props);
@@ -24,5 +25,12 @@ export default class StorageStack extends sst.Stack {
       primaryIndex: { partitionKey: "userId", sortKey: "studentId" },
     });
 
+    this.parentsTable = new sst.Table(this, "Parents", {
+      fields: {
+        userId: sst.TableFieldType.STRING,
+        parentId: sst.TableFieldType.STRING,
+      },
+      primaryIndex: { partitionKey: "userId", sortKey: "parentId" },
+    });
   }
 }

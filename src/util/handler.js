@@ -4,12 +4,14 @@ export default function handler(lambda) {
 
     try {
       body = await lambda(event, context);
-      200;
+      statusCode = 200;
     } catch (e) {
-      console.error(e);
+      console.error("ERROR: ", e);
       body = { error: e.message };
-      500;
+      statusCode = 500;
     }
+
+    // Return HTTP response
     return {
       statusCode,
       body: JSON.stringify(body),

@@ -1,17 +1,14 @@
 import * as sst from "@serverless-stack/resources";
 
-export default class StudentsApiStack extends sst.Stack {
+export default class ParentsApiStack extends sst.Stack {
   api;
 
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    console.log("TESTING STUDENTS API");
-
     const { table } = props;
 
     this.api = new sst.Api(this, "Api", {
-      cors: true,
       defaultAuthorizationType: "AWS_IAM",
       defaultFunctionProps: {
         environment: {
@@ -19,11 +16,11 @@ export default class StudentsApiStack extends sst.Stack {
         },
       },
       routes: {
-        "POST   /students": "src/students/create.main",
-        "GET    /students/{id}": "src/students/get.main",
-        "GET    /students": "src/students/list.main",
-        "PUT    /students/{id}": "src/students/update.main",
-        "DELETE /students/{id}": "src/students/delete.main",
+        "POST   /students": "src/parents/create.main",
+        "GET    /students/{id}": "src/parents/get.main",
+        "GET    /students": "src/parents/list.main",
+        "PUT    /students/{id}": "src/parents/update.main",
+        "DELETE /students/{id}": "src/parents/delete.main",
       },
     });
 
